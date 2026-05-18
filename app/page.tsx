@@ -12,6 +12,13 @@ import Feedback from "@/components/feedback";
 import BlogSection from "@/components/blogsection";
 import BlogSection1 from "@/components/blogsection1";
 import Footer from "@/components/footer";
+import Project from "@/components/project"
+import FeaturedProject from "@/components/featureproject";
+import Contact from "@/components/contact";
+import Process from "@/components/process";
+import TheEngine from "@/components/theengine";
+import TheIncubator from "@/components/Theincubator";
+
 
 export default function Home() {
   return (
@@ -20,15 +27,21 @@ export default function Home() {
     <Navbar/>
     <HeroSection/>
     <CTAsection/>
+    <Project/>
+    <FeaturedProject/>
     <ServicesSection/>
     <Whyworkwith/>
     <WhyHubble/>
     <Notsuresection/>
     <FAQSection/>
     <Pricingsection/>
+    <TheEngine/>
+    <TheIncubator/>
+    <Process/>
     <Feedback/>
     <BlogSection/>
     <BlogSection1/>
+    <Contact/>
     <Footer/>
      
     </main>

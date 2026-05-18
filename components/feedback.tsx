@@ -78,59 +78,66 @@ export default function TestimonialSection() {
       `}</style>
 
       <section style={styles.section}>
-        <div style={styles.container}>
+        <div style={styles.wrapper}>
 
-          {/* ── Left col ── */}
-          <div style={styles.leftCol}>
-
-            {/* Big active image */}
-            <div style={styles.mainImageWrapper} key={active} className="testimonial-fade">
-              <img
-                src={current.image}
-                alt={current.name}
-                style={styles.mainImage}
-              />
+          {/* ── Header ── */}
+          <div style={styles.header}>
+            <div style={styles.labelRow}>
+              <div style={styles.orangeSquare} />
+              <span style={styles.label}>TESTIMONIALS</span>
             </div>
-
-            {/* 3 thumbnails — active wala hide */}
-            <div style={styles.thumbRow}>
-              {testimonials
-                .filter((_, i) => i !== active)
-                .map((t) => {
-                  const originalIndex = testimonials.findIndex(x => x.name === t.name);
-                  return (
-                    <div
-                      key={originalIndex}
-                      className="thumb-item"
-                      onClick={() => setActive(originalIndex)}
-                    >
-                      <img src={t.image} alt={t.name} />
-                    </div>
-                  );
-                })}
+            <div style={styles.headerRight}>
+              <h2 style={styles.heading}>
+                Real Results,<br />
+                <span style={styles.headingBold}>Real Impact</span>
+              </h2>
             </div>
           </div>
 
-          {/* ── Right col ── */}
-          <div style={styles.rightCol} key={active + "-content"} className="testimonial-fade">
+          {/* ── Main content ── */}
+          <div style={styles.container}>
 
-            {/* Company logo + divider + stars */}
-            <div style={styles.topRow}>
-              <div style={styles.companyLogoWrapper}>
-                <img src={current.companyLogo} alt={current.company} style={styles.companyLogo} />
+            {/* ── Left col ── */}
+            <div style={styles.leftCol}>
+              <div style={styles.mainImageWrapper} key={active} className="testimonial-fade">
+                <img src={current.image} alt={current.name} style={styles.mainImage} />
               </div>
-              <div style={styles.divider} />
-              <div style={styles.stars}>
-                {[...Array(current.rating)].map((_, i) => (
-                  <span key={i} style={styles.star}>★</span>
-                ))}
+              <div style={styles.thumbRow}>
+                {testimonials
+                  .filter((_, i) => i !== active)
+                  .map((t) => {
+                    const originalIndex = testimonials.findIndex(x => x.name === t.name);
+                    return (
+                      <div
+                        key={originalIndex}
+                        className="thumb-item"
+                        onClick={() => setActive(originalIndex)}
+                      >
+                        <img src={t.image} alt={t.name} />
+                      </div>
+                    );
+                  })}
               </div>
             </div>
 
-            <h2 style={styles.feedbackLabel}>Feedback</h2>
-            <p style={styles.quote}>{current.feedback}</p>
-            <h3 style={styles.name}>{current.name}</h3>
-            <p style={styles.role}>{current.role}</p>
+            {/* ── Right col ── */}
+            <div style={styles.rightCol} key={active + "-content"} className="testimonial-fade">
+              <div style={styles.topRow}>
+                <div style={styles.companyLogoWrapper}>
+                  <img src={current.companyLogo} alt={current.company} style={styles.companyLogo} />
+                </div>
+                <div style={styles.divider} />
+                <div style={styles.stars}>
+                  {[...Array(current.rating)].map((_, i) => (
+                    <span key={i} style={styles.star}>★</span>
+                  ))}
+                </div>
+              </div>
+              <h2 style={styles.feedbackLabel}>Feedback</h2>
+              <p style={styles.quote}>{current.feedback}</p>
+              <h3 style={styles.name}>{current.name}</h3>
+              <p style={styles.role}>{current.role}</p>
+            </div>
 
           </div>
         </div>
@@ -145,10 +152,60 @@ const styles: Record<string, React.CSSProperties> = {
     backgroundColor: "#ffffff",
     padding: "80px 0 60px",
   },
-  container: {
+  wrapper: {
     maxWidth: "1200px",
     margin: "0 auto",
     padding: "0 40px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "60px",
+  },
+
+  // ── Header ──
+  header: {
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+    gap: "40px",
+    alignItems: "flex-start",
+  },
+  labelRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    paddingTop: "8px",
+  },
+  orangeSquare: {
+    width: "18px",
+    height: "18px",
+    backgroundColor: "#e8400c",
+    borderRadius: "2px",
+    flexShrink: 0,
+  },
+  label: {
+    fontFamily: '"Apfel Grotezk", "Apfel Grotezk Placeholder", sans-serif',
+    fontSize: "13px",
+    fontWeight: 500,
+    color: "#111111",
+    letterSpacing: "0.06em",
+    textTransform: "uppercase" as const,
+  },
+  headerRight: {},
+  heading: {
+    fontFamily: '"Apfel Grotezk", "Apfel Grotezk Placeholder", sans-serif',
+    fontSize: "clamp(40px, 5vw, 68px)",
+    fontWeight: 400,
+    color: "#888888",
+    margin: 0,
+    lineHeight: "105%",
+    letterSpacing: "-0.03em",
+  },
+  headingBold: {
+    fontWeight: 700,
+    color: "#111111",
+  },
+
+  // ── Main grid ──
+  container: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gap: "80px",

@@ -16,7 +16,7 @@ export default function PricingSection() {
           <span style={styles.headingLight}>Creative Plans,</span><br />
           <span style={styles.headingBold}>Your way</span>
         </h2>
-      </div>
+      </div> 
 
       {/* Plan Card */}
       <div style={styles.card}>
