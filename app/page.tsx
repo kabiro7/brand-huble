@@ -8,6 +8,10 @@ import FAQSection from "@/components/FAQSection";
 import Pricingsection from "@/components/Pricingsection";
 import Notsuresection from "@/components/Notsuresection";
 import HeroSection from "@/components/Herosection";
+import Feedback from "@/components/feedback";
+import BlogSection from "@/components/blogsection";
+import BlogSection1 from "@/components/blogsection1";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -22,7 +26,10 @@ export default function Home() {
     <Notsuresection/>
     <FAQSection/>
     <Pricingsection/>
-    
+    <Feedback/>
+    <BlogSection/>
+    <BlogSection1/>
+    <Footer/>
      
     </main>
   );
