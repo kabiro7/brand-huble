@@ -18,10 +18,10 @@ const services = [
 ];
 
 const social = [
-  { label: "Instagram", href: "https://www.instagram.com/brandhubble" },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/company/brand-hubble/" },
-  { label: "Behance",   href: "https://www.behance.net/brandhubble" },
-  { label: "Whatsapp",  href: "http://wa.me/918005792646" },
+  { label: "Instagram", href: "" },
+  { label: "LinkedIn",  href: "" },
+  { label: "Behance",   href: "" },
+  { label: "Whatsapp",  href: "" },
 ];
 
 const legals = [

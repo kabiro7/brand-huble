@@ -18,7 +18,8 @@ import Contact from "@/components/contact";
 import Process from "@/components/process";
 import TheEngine from "@/components/theengine";
 import TheIncubator from "@/components/Theincubator";
-
+import TeamSection from "@/components/teamsection";
+import ProjectArchive from "@/components/projectarchive";
 
 export default function Home() {
   return (
@@ -30,16 +31,18 @@ export default function Home() {
     <Project/>
     <FeaturedProject/>
     <ServicesSection/>
-    <Whyworkwith/>
-    <WhyHubble/>
-    <Notsuresection/>
-    <FAQSection/>
-    <Pricingsection/>
-    <TheEngine/>
-    <TheIncubator/>
     <Process/>
     <Feedback/>
     <BlogSection/>
+    <FAQSection/>
+    <TeamSection/>
+    <Pricingsection/>
+    <TheEngine/>
+    <TheIncubator/>
+    <Whyworkwith/>
+    <WhyHubble/>
+    <Notsuresection/>
+    <ProjectArchive/>
     <BlogSection1/>
     <Contact/>
     <Footer/>

@@ -1,124 +1,86 @@
 "use client";
 
-const quotes = [
+const items = [
   {
     id: "01",
-    quote: "We build strategies that actually work, helping brands grow with clarity, focus, and results you can trust.",
-    name: "Dev",
-    role: "Co-Founder",
-    image: "/images/dev.avif",
+    title: "Strategy-first execution",
+    description:
+      "We start with strategy, not scattered tasks. Every action is tied to a clear business goal.",
   },
   {
     id: "02",
-    quote: "We turn ideas into strong brands, crafting strategies that deliver real impact and long-term market presence.",
-    name: "Shobhit Rohilla",
-    role: "Co-Founder",
-    image: "/images/shobit.avif",
+    title: "AI-driven SEO & modern growth", 
+    description: "AI-driven SEO and modern growth techniques",
+  },
+  {
+    id: "03",
+    title: "Results over vanity metrics",
+    description:
+      "Likes don't pay bills. Revenue does. We optimize for impact, not applause.",
+  },
+  {
+    id: "04",
+    title: "Long-term partnerships",
+    description:
+      "We work like an extension of your team. Built for founders who think long term.",
   },
 ];
 
-export default function WhyWorkWith() {
+export default function Whyworkwith() {
   return (
     <section style={styles.section}>
-
-      {/* Heading - top left */}
-      <div style={styles.headingBlock}>
-        <p style={styles.headingLight}>Why work with</p>
-        <p style={styles.headingBold}>BrandHubble?</p>
-      </div>
-
-      {/* Cards - full width */}
-      <div style={styles.cardList}>
-        {quotes.map((q) => (
-          <div key={q.id} style={styles.card}>
-            <p style={styles.quoteText}>{q.quote}</p>
-            <div style={styles.author}>
-              <img src={q.image} alt={q.name} style={styles.avatar} />
-              <div>
-                <p style={styles.name}>{q.name}</p>
-                <p style={styles.role}>{q.role}</p>
-              </div>
-            </div>
+      {items.map((item) => (
+        <div key={item.id}>
+          <div style={styles.divider} /> 
+          <div style={styles.row}>
+            <h2 style={styles.title}>{item.title}</h2>
+            <p style={styles.description}>{item.description}</p>
+            <span style={styles.num}>{item.id}</span>
           </div>
-        ))}
-      </div>
-
+        </div>
+      ))}
+      <div style={styles.divider} />
     </section>
   );
-} 
+}
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = {
   section: {
     fontFamily: "'DM Sans', sans-serif",
-    background: "#f5f5f5",
-    width: "100%",
-    padding: "80px 40px",
+    background: "#f5f5f3",
+    maxWidth: "100%",
+    padding: "0 40px",
   },
-  headingBlock: {
-    marginBottom: "40px",
+  divider: {
+    borderTop: "0.5px solid #c8c8c4",
   },
-  headingLight: {
-    fontSize: "clamp(28px, 4vw, 48px)",
-    fontWeight: "400",
-    color: "#111111",
-    margin: "0",
-    lineHeight: "1.2",
-  },
-  headingBold: {
-    fontSize: "clamp(32px, 5vw, 56px)",
-    fontWeight: "700",
-    color: "#111111",
-    margin: "0",
-    lineHeight: "1.2",
-  },
-  cardList: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "20px",
-  },
-  card: {
-    background: "#ffffff",
-    borderRadius: "16px",
-    padding: "48px",
-    position: "relative",
-    overflow: "hidden",
-    display: "flex",
-    flexDirection: "column",
-    gap: "32px",
- 
-  },
-  quoteText: {
-    fontSize: "18px",
-    color: "#444444",
-    lineHeight: "1.75",
-    margin: "0",
-    position: "relative",
-    zIndex: 1,
-  },
-  author: {
+  row: {
     display: "flex",
     alignItems: "center",
-    gap: "16px",
-    position: "relative",
-    zIndex: 1,
+    padding: "40px 0",
+    gap: "40px",
   },
-  avatar: {
-    width: "52px",
-    height: "52px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    background: "#d4d4ce",
-    flexShrink: 0,
-  },
-  name: {
-    fontSize: "17px",
-    fontWeight: "600",
+  title: {
+    fontSize: "42px",
+    fontWeight: "500",
     color: "#111111",
-    margin: "0 0 2px 0",
+    margin: 0,
+    flex: "0 0 45%",
+    lineHeight: "1.2",
+    letterSpacing: "-0.02em",
   },
-  role: {
-    fontSize: "13px",
-    color: "#888888",
-    margin: "0",
+  description: {
+    fontSize: "15px",
+    lineHeight: "1.7",
+    color: "#777770",
+    margin: 0,
+    flex: 1,
+  },
+  num: {
+    fontSize: "22px",
+    fontWeight: "300",
+    color: "#111111",
+    minWidth: "40px",
+    textAlign: "right",
   },
 };
