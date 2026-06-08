@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar"
+// import Navbar from "@/components/Navbar"
 import Herosection from "@/components/Herosection";
 import CTAsection from "@/components/Ctasection";
 import WhyHubble from "@/components/WhyHubble";
@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main style={{ minHeight: "100vh" }}>
   
-    <Navbar/>
+    {/* <Navbar/> */}
     <HeroSection/>
     <CTAsection/>
     <Project/>

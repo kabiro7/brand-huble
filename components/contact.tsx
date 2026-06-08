@@ -22,13 +22,42 @@ export default function ContactSection() {
     message: "",
   });
 
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(form);
+    setStatus('loading');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('success');
+        setForm({
+          name: '',
+          countryCode: '+91',
+          phone: '',
+          email: '',
+          service: 'Performance Marketing',
+          location: '',
+          message: '',
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -83,6 +112,10 @@ export default function ContactSection() {
         .submit-btn:hover {
           background: #e8e8e8;
           transform: translateY(-1px);
+        }
+        .submit-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
         }
       `}</style>
 
@@ -204,9 +237,20 @@ export default function ContactSection() {
             </div>
 
             {/* Submit */}
-            <button className="submit-btn" onClick={handleSubmit}>
-              Submit
+            <button className="submit-btn" onClick={handleSubmit} disabled={status === 'loading'}>
+              {status === 'loading' ? 'Sending...' : 'Submit'}
             </button>
+
+            {status === 'success' && (
+              <p style={{ color: '#4caf50', textAlign: 'center', fontFamily: 'sans-serif' }}>
+                Thanks for reaching out! We'll be in touch soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ color: '#f44336', textAlign: 'center', fontFamily: 'sans-serif' }}>
+                something went wrong, try again
+              </p>
+            )}
 
           </div>
         </div>
@@ -230,8 +274,6 @@ const styles: Record<string, React.CSSProperties> = {
     gap: "80px",
     alignItems: "flex-start",
   },
-
-  // ── Left ──
   left: {
     display: "flex",
     flexDirection: "column",
@@ -260,8 +302,6 @@ const styles: Record<string, React.CSSProperties> = {
     overflow: "hidden",
     border: "1px solid #2e2e2e",
   },
-
-  // ── Right ──
   right: {
     display: "flex",
     flexDirection: "column",

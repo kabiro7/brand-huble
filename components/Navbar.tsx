@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const navLinks = [
   { label: "PROJECTS", href: "/project-lobby" },
@@ -15,7 +16,6 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
-
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -40,14 +40,8 @@ export default function Navbar() {
         }
 
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(-10px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
@@ -62,16 +56,9 @@ export default function Navbar() {
         zIndex: 300,
         transition: "background-color 0.35s ease",
       }}>
-        <a href="/" style={styles.logoRow}>
+        <Link href="/" style={styles.logoRow}>
           <div style={styles.logoIcon}>
-            <svg
-              viewBox="0 0 24 24"
-              width="22"
-              height="22"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="1.5"
-            >
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" strokeWidth="1.5">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="2" x2="12" y2="22" />
               <line x1="2" y1="12" x2="22" y2="12" />
@@ -80,7 +67,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span style={styles.logoText}>BRAND HUBBLE</span>
-        </a>
+        </Link>
 
         <button
           style={styles.hamburger}
@@ -103,7 +90,7 @@ export default function Navbar() {
         <div style={styles.overlay} className="menu-overlay">
           <div style={styles.linkList}>
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="nav-link"
@@ -111,7 +98,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -126,7 +113,6 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     textDecoration: "none",
   },
-
   logoIcon: {
     display: "flex",
     alignItems: "center",
@@ -136,7 +122,6 @@ const styles: Record<string, React.CSSProperties> = {
     border: "1.5px solid #ffffff",
     borderRadius: "50%",
   },
-
   logoText: {
     color: "#ffffff",
     fontSize: "15px",
@@ -146,7 +131,6 @@ const styles: Record<string, React.CSSProperties> = {
     marginLeft: "12px",
     textTransform: "uppercase",
   },
-
   hamburger: {
     display: "flex",
     flexDirection: "column",
@@ -159,7 +143,6 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: "center",
     zIndex: 400,
   },
-
   line: {
     display: "block",
     width: "24px",
@@ -167,7 +150,6 @@ const styles: Record<string, React.CSSProperties> = {
     backgroundColor: "#ffffff",
     borderRadius: "10px",
   },
-
   closeBtn: {
     color: "#ffffff",
     fontSize: "22px",
@@ -175,7 +157,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: '"Geist", sans-serif',
     fontWeight: 400,
   },
-
   overlay: {
     position: "fixed",
     top: "78px",
@@ -188,14 +169,12 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
   },
-
   linkList: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     gap: "4px",
   },
-
   overlayLink: {
     fontSize: "95px",
     fontWeight: 700,

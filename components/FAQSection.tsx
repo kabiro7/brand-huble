@@ -30,9 +30,9 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index) => {
+  const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -75,7 +75,7 @@ const styles = {
   section: {
     fontFamily: "'DM Sans', sans-serif",
     background: "#ffffff",
-    maxWidth: "100%",        // ✅ fix kiya
+    maxWidth: "100%",
     margin: "0 auto",
     padding: "80px 40px",
   },
@@ -132,4 +132,4 @@ const styles = {
   divider: {
     borderBottom: "0.5px solid #d4d4ce",
   },
-};
+} as const;
