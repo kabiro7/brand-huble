@@ -12,9 +12,9 @@ const services = [
 ];
 
 export default function ServicesSection() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index) => {
+  const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -191,4 +191,4 @@ const styles = {
     transition: "all 0.2s ease",
     flexShrink: 0,
   },
-};
+} as const;
