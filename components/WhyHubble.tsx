@@ -83,4 +83,4 @@ const styles = {
     minWidth: "40px",
     textAlign: "right",
   },
-};
+}as const;
