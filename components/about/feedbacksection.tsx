@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { testimonials } from "./testimonials.data";
+import { testimonials } from "../testimonials.data";
 
 export default function TestimonialSection() {
   const [active, setActive] = useState(0);
