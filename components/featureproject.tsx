@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-
+import Link from "next/link";
 const project = {
   name: "clik.ai",
   desc: "Bold branding that represents advance ai-driven technological tools of the company.",
@@ -106,7 +106,7 @@ export default function FeaturedProject() {
         <div style={styles.container}>
 
           {/* Full width image card */}
-          <div className="featured-project-card">
+          <Link href={'/project-lobby/click.ai'} className="featured-project-card">
             <div className="fp-img-wrap">
               <img src={project.image} alt={project.name} />
               <div className="fp-tags">
@@ -115,7 +115,7 @@ export default function FeaturedProject() {
                 ))}
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* Text + button below */}
           <div style={styles.textBlock}>
